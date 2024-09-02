@@ -53,78 +53,19 @@
         <h1 class="mb-5">Our Services</h1>
     </div>
     <div class="row g-4">
+        @foreach ($our_service as $value)
+            
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="service-item rounded pt-3">
                 <div class="p-4">
-                    <i class="fa fa-3x fa-globe backg-colors mb-4"></i>
-                    <h5>WorldWide Tours</h5>
-                    <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                    {!! $value->icon_link !!}
+                    <h5>{{ $value->title }}</h5>
+                    <p>{{ $value->description }}</p>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="service-item rounded pt-3">
-                <div class="p-4">
-                    <i class="fa fa-3x fa-hotel backg-colors mb-4"></i>
-                    <h5>Hotel Reservation</h5>
-                    <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="service-item rounded pt-3">
-                <div class="p-4">
-                    <i class="fa fa-3x fa-user backg-colors mb-4"></i>
-                    <h5>Travel Guides</h5>
-                    <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-            <div class="service-item rounded pt-3">
-                <div class="p-4">
-                    <i class="fa fa-3x fa-cog backg-colors mb-4"></i>
-                    <h5>Event Management</h5>
-                    <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item rounded pt-3">
-                <div class="p-4">
-                    <i class="fa fa-3x fa-globe backg-colors mb-4"></i>
-                    <h5>WorldWide Tours</h5>
-                    <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="service-item rounded pt-3">
-                <div class="p-4">
-                    <i class="fa fa-3x fa-hotel backg-colors mb-4"></i>
-                    <h5>Hotel Reservation</h5>
-                    <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="service-item rounded pt-3">
-                <div class="p-4">
-                    <i class="fa fa-3x fa-user backg-colors mb-4"></i>
-                    <h5>Travel Guides</h5>
-                    <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-            <div class="service-item rounded pt-3">
-                <div class="p-4">
-                    <i class="fa fa-3x fa-cog backg-colors mb-4"></i>
-                    <h5>Event Management</h5>
-                    <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                </div>
-            </div>
-        </div>
+       
+        @endforeach
     </div>
 </div>
 </div>
@@ -304,42 +245,25 @@
 <div class="container">
     <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
         <h6 class="section-title bg-white text-center backg-colors px-3">Process</h6>
-        <h1 class="mb-5">3 Easy Steps</h1>
+        <h1 class="mb-5">Easy Steps</h1>
     </div>
     <div class="row gy-5 gx-4 justify-content-center">
-        <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="position-relative border border-success pt-5 pb-4 px-4">
-                <div class="d-inline-flex align-items-center justify-content-center button-colors rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
-                    <i class="fa fa-globe fa-3x text-white"></i>
+
+        @foreach ($our_process as $value)
+                
+            <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="position-relative border border-success pt-5 pb-4 px-4">
+                    <div class="d-inline-flex align-items-center justify-content-center button-colors rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                        {!! $value->icon_link !!}
+                    </div>
+                    <h5 class="mt-4">{{$value->title}}</h5>
+                    <hr class="w-25 mx-auto button-colors mb-1">
+                    <hr class="w-50 mx-auto button-colors mt-0">
+                    <p class="mb-0">{{$value->description}}</p>
                 </div>
-                <h5 class="mt-4">Choose A Destination</h5>
-                <hr class="w-25 mx-auto button-colors mb-1">
-                <hr class="w-50 mx-auto button-colors mt-0">
-                <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
             </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="position-relative border border-success pt-5 pb-4 px-4">
-                <div class="d-inline-flex align-items-center justify-content-center button-colors rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
-                    <i class="fa fa-dollar-sign fa-3x text-white"></i>
-                </div>
-                <h5 class="mt-4">Pay Online</h5>
-                <hr class="w-25 mx-auto button-colors mb-1">
-                <hr class="w-50 mx-auto button-colors mt-0">
-                <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="position-relative border border-success pt-5 pb-4 px-4">
-                <div class="d-inline-flex align-items-center justify-content-center button-colors rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
-                    <i class="fa fa-plane fa-3x text-white"></i>
-                </div>
-                <h5 class="mt-4">Fly Today</h5>
-                <hr class="w-25 mx-auto button-colors mb-1">
-                <hr class="w-50 mx-auto button-colors mt-0">
-                <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
-            </div>
-        </div>
+       
+        @endforeach
     </div>
 </div>
 </div>

@@ -7,7 +7,9 @@ use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\DepositController;
+use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\OurServiceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +38,7 @@ Route::get( '/package/booking/{slug}', [BookingController::class, 'indexBooking'
 Route::post( '/package/booking', [BookingController::class, 'store'] )->name( 'booking.store' );
 
 Route::prefix( 'admin/' )->group( function () {
+
 
     Route::middleware( 'auth' )->group( function () {
 
@@ -76,6 +79,11 @@ Route::prefix( 'admin/' )->group( function () {
         // About Us
         Route::get( '/about', [FrontendController::class, 'editAbout'] )->name( 'edit.about' );
         Route::Post( '/update', [FrontendController::class, 'updateAbout'] )->name( 'update.about' );
+
+        // our service
+        Route::resource('/our-service',OurServiceController::class);
+        // our facility
+        Route::resource('/our-facility',FacilityController::class);
 
     } );
 

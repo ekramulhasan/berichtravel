@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ env('APP_NAME') }}</title>
+    <title>@yield('title')</title>
 
     @include('backend.css.css')
 
@@ -56,6 +56,56 @@
                             </ul>
                         </div>
                     </li>
+
+                    {{-- our service --}}
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#our_service" role="button" aria-expanded="false"
+                            aria-controls="emails">
+                            <i class="link-icon" data-feather="mail"></i>
+                            <span class="link-title">Our Service</span>
+                            <i class="link-arrow" data-feather="chevron-down"></i>
+                        </a>
+                        <div class="collapse" id="our_service">
+                            <ul class="nav sub-menu">
+                                <li class="nav-item">
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('our-service.create') }}" class="nav-link">Create Service</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('our-service.index') }}" class="nav-link">Show Service</a>
+                                </li>
+
+
+
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    {{-- out facility --}}
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#our_process" role="button" aria-expanded="false"
+                            aria-controls="emails">
+                            <i class="link-icon" data-feather="mail"></i>
+                            <span class="link-title">Our Process</span>
+                            <i class="link-arrow" data-feather="chevron-down"></i>
+                        </a>
+                        <div class="collapse" id="our_process">
+                            <ul class="nav sub-menu">
+                                <li class="nav-item">
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('our-facility.create') }}" class="nav-link">Create Process</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('our-facility.index') }}" class="nav-link">Show Process</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="nav-item">
                         <a href="{{ route('create.guide') }}" class="nav-link">
                             <i class="link-icon" data-feather="message-square"></i>

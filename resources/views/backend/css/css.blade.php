@@ -13,4 +13,7 @@
  <!-- End layout styles -->
  <link rel="shortcut icon" href="{{ asset('frontend') }}/img/TravelAgencyLogo.png" />
 
+  {{-- toaster css--}}
+  <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 @stack('backend_css')

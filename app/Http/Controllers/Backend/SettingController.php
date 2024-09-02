@@ -26,7 +26,7 @@ class SettingController extends Controller {
             'site_email'          => 'required|string|email|max:255',
             'site_facebook_link'  => 'required|string|max:255',
             'site_linkeding_link' => 'required|string|max:255',
-            'site_description'    => 'required|string|max:255',
+            'site_description'    => 'required|string',
 
         ] );
 
