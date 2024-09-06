@@ -4,13 +4,16 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\GuideController;
 use App\Http\Controllers\Backend\PackageController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\DepositController;
+use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\OurServiceController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Destination;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,7 +41,6 @@ Route::get( '/package/booking/{slug}', [BookingController::class, 'indexBooking'
 Route::post( '/package/booking', [BookingController::class, 'store'] )->name( 'booking.store' );
 
 Route::prefix( 'admin/' )->group( function () {
-
 
     Route::middleware( 'auth' )->group( function () {
 
@@ -81,9 +83,13 @@ Route::prefix( 'admin/' )->group( function () {
         Route::Post( '/update', [FrontendController::class, 'updateAbout'] )->name( 'update.about' );
 
         // our service
-        Route::resource('/our-service',OurServiceController::class);
+        Route::resource( '/our-service', OurServiceController::class );
         // our facility
-        Route::resource('/our-facility',FacilityController::class);
+        Route::resource( '/our-facility', FacilityController::class );
+        // testimonial
+        Route::resource( '/testimonial', TestimonialController::class );
+        // destination
+        Route::resource( '/destination', DestinationController::class );
 
     } );
 

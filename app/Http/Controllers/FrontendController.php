@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Destination;
 use App\Models\Facility;
 use App\Models\Guide;
 use App\Models\OusService;
 use App\Models\Package;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -20,13 +22,18 @@ class FrontendController extends Controller
         $about_section = About::all();
         $our_service   = OusService::all();
         $our_process   = Facility::all();
+        $testimonial   = Testimonial::all();
+        $destination   = Destination::all();
 
         return view( 'frontend.home', compact(
+
             'packages',
             'all_guide',
             'about_section',
             'our_service',
-            'our_process'
+            'our_process',
+            'testimonial',
+            'destination',
 
         ) );
     }

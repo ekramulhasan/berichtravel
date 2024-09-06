@@ -32,7 +32,7 @@
                     <li class="nav-item nav-category">Main</li>
                     <li class="nav-item">
                         <a href="{{ route('dashboard') }}" class="nav-link">
-                            <i class="link-icon" data-feather="box"></i>
+                            <i class="fa-solid fa-house"></i>
                             <span class="link-title">Dashboard</span>
                         </a>
                     </li>
@@ -40,7 +40,7 @@
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false"
                             aria-controls="emails">
-                            <i class="link-icon" data-feather="mail"></i>
+                            <i class="fa-solid fa-toolbox"></i>
                             <span class="link-title">Packages</span>
                             <i class="link-arrow" data-feather="chevron-down"></i>
                         </a>
@@ -59,9 +59,9 @@
 
                     {{-- our service --}}
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#our_service" role="button" aria-expanded="false"
-                            aria-controls="emails">
-                            <i class="link-icon" data-feather="mail"></i>
+                        <a class="nav-link" data-toggle="collapse" href="#our_service" role="button"
+                            aria-expanded="false" aria-controls="emails">
+                            <i class="fa-solid fa-sliders"></i>
                             <span class="link-title">Our Service</span>
                             <i class="link-arrow" data-feather="chevron-down"></i>
                         </a>
@@ -83,11 +83,11 @@
                         </div>
                     </li>
 
-                    {{-- out facility --}}
+                    {{-- our facility --}}
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#our_process" role="button" aria-expanded="false"
-                            aria-controls="emails">
-                            <i class="link-icon" data-feather="mail"></i>
+                        <a class="nav-link" data-toggle="collapse" href="#our_process" role="button"
+                            aria-expanded="false" aria-controls="emails">
+                            <i class="fa-solid fa-circle-notch"></i>
                             <span class="link-title">Our Process</span>
                             <i class="link-arrow" data-feather="chevron-down"></i>
                         </a>
@@ -106,24 +106,75 @@
                         </div>
                     </li>
 
+                    {{-- testimonial --}}
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#testimonial" role="button"
+                            aria-expanded="false" aria-controls="emails">
+                            <i class="fa-solid fa-address-card"></i>
+                            <span class="link-title">Our Testimonial</span>
+                            <i class="link-arrow" data-feather="chevron-down"></i>
+                        </a>
+                        <div class="collapse" id="testimonial">
+                            <ul class="nav sub-menu">
+                                <li class="nav-item">
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('testimonial.create') }}" class="nav-link">Create
+                                        Testimonial</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('testimonial.index') }}" class="nav-link">Show Testimonial</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    {{-- destination --}}
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#destination" role="button"
+                            aria-expanded="false" aria-controls="destination">
+                            <i class="fa-solid fa-address-card"></i>
+                            <span class="link-title">Destination</span>
+                            <i class="link-arrow" data-feather="chevron-down"></i>
+                        </a>
+                        <div class="collapse" id="destination">
+                            <ul class="nav sub-menu">
+                                <li class="nav-item">
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('destination.create') }}" class="nav-link">Create
+                                        Destination</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('destination.index') }}" class="nav-link">Show Destination</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="nav-item">
                         <a href="{{ route('create.guide') }}" class="nav-link">
                             <i class="link-icon" data-feather="message-square"></i>
                             <span class="link-title">Guide</span>
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a href="{{ route('all.booking') }}" class="nav-link">
                             <i class="link-icon" data-feather="calendar"></i>
                             <span class="link-title">All Booking</span>
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a href="{{ route('deposit.requst') }}" class="nav-link">
                             <i class="link-icon" data-feather="calendar"></i>
                             <span class="link-title">Deposit Requst</span>
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a href="{{ route('edit.about') }}" class="nav-link">
                             <i class="link-icon" data-feather="calendar"></i>

@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    
     <!-- Spinner Start -->
     {{-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
@@ -56,17 +57,16 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
-                    <a href="{{ route('about.page') }}" class="nav-item nav-link">About</a>
+                    <a href="{{ route('about.page') }}" class="nav-item nav-link">Blog</a>
                     {{-- <a href="service.html" class="nav-item nav-link">Services</a> --}}
-                    <a href="{{ route('all_packagesss') }}" class="nav-item nav-link">Packages</a>
-
-                    <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
+                    <a href="{{ route('all_packagesss') }}" class="nav-item nav-link">Our Service</a>
+                    @auth('customer')
+                    <a href="{{ route('customer.profile') }}" class="nav-item nav-link">Profile</a>
+                    @else
+                    <a href="{{ route('customer.login') }}" class="nav-item nav-link">Login</a>
+                    @endauth
                 </div>
-                @auth('customer')
-                <a href="{{ route('customer.profile') }}" class="btn button-colors rounded-pill py-2 px-4">Profile</a>
-                @else
-                <a href="{{ route('customer.login') }}" class="btn button-colors  rounded-pill py-2 px-4">Login</a>
-                @endauth
+               
 
             </div>
         </nav>

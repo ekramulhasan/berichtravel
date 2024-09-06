@@ -18,6 +18,7 @@
 <script src="{{ asset('backend') }}/assets/vendors/apexcharts/apexcharts.min.js"></script>
 <script src="{{ asset('backend') }}/assets/vendors/progressbar.js/progressbar.min.js"></script>
 <!-- end plugin js for this page -->
+
 <!-- inject:js -->
 <script src="{{ asset('backend') }}/assets/vendors/feather-icons/feather.min.js"></script>
 <script src="{{ asset('backend') }}/assets/js/template.js"></script>
@@ -28,8 +29,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 {{-- toaster --}}
-<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
 
 @stack('backend_js')
