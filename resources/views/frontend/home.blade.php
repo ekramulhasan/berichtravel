@@ -48,7 +48,8 @@
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded pt-3">
                             <div class="p-4">
-                                {!! $value->icon_link !!}
+                                <i class="{{ $value->icon_link }} backg-colors mb-4" style="font-size:48px;"></i>
+                                
                                 <h5>{{ $value->title }}</h5>
                                 <p>{{ $value->description }}</p>
                             </div>
