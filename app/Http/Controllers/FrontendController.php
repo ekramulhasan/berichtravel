@@ -8,14 +8,13 @@ use App\Models\Facility;
 use App\Models\Guide;
 use App\Models\OusService;
 use App\Models\Package;
+use App\Models\ProductImage;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
-class FrontendController extends Controller
-{
-    public function index()
-    {
+class FrontendController extends Controller {
+    public function index() {
 
         $packages      = Package::all();
         $all_guide     = Guide::all();
@@ -38,42 +37,37 @@ class FrontendController extends Controller
         ) );
     }
 
-    public function packageDetails( $slug )
-    {
+    public function packageDetails( $slug ) {
 
         $details_package = Package::where( 'slug', $slug )->get();
         $package_id      = $details_package->first()->id;
         $package_info    = Package::find( $package_id );
-        return view( 'frontend.package_details', compact( 'package_info' ) );
+        $multi_img       = ProductImage::where( 'product_id', $package_id )->get();
+        return view( 'frontend.package_details', compact( 'package_info','multi_img' ) );
 
     }
 
-    public function aboutUs()
-    {
+    public function aboutUs() {
         $about_section = About::all();
         $all_guide     = Guide::all();
         return view( 'frontend.about', compact( 'all_guide', 'about_section' ) );
     }
 
-    public function allPackages()
-    {
+    public function allPackages() {
         $packages = Package::all();
         return view( 'frontend.packages', compact( 'packages' ) );
     }
 
-    public function contactUs()
-    {
+    public function contactUs() {
         return view( 'frontend.contactus' );
     }
 
-    public function editAbout()
-    {
+    public function editAbout() {
         $aboutus = About::all();
         return view( 'backend.aboutUs', compact( 'aboutus' ) );
     }
 
-    public function updateAbout( Request $request )
-    {
+    public function updateAbout( Request $request ) {
         $request->validate( [
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ] );

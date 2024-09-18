@@ -1,10 +1,9 @@
 @extends('frontend.master')
 
+
 @section('hero_section')
-
-{{-- slider --}}
-@include('frontend.layouts.slider')
-
+    {{-- slider --}}
+    @include('frontend.layouts.slider')
 @endsection
 
 @section('content')
@@ -49,7 +48,7 @@
                         <div class="service-item rounded pt-3">
                             <div class="p-4">
                                 <i class="{{ $value->icon_link }} backg-colors mb-4" style="font-size:48px;"></i>
-                                
+
                                 <h5>{{ $value->title }}</h5>
                                 <p>{{ $value->description }}</p>
                             </div>
@@ -217,7 +216,7 @@
                         <div class="position-relative border border-success pt-5 pb-4 px-4">
                             <div class="d-inline-flex align-items-center justify-content-center button-colors rounded-circle position-absolute top-0 start-50 translate-middle shadow"
                                 style="width: 100px; height: 100px;">
-                                {!! $value->icon_link !!}
+                                <i class="{{ $value->icon_link }} fa-3x text-white"></i>
                             </div>
                             <h5 class="mt-4">{{ $value->title }}</h5>
                             <hr class="w-25 mx-auto button-colors mb-1">
