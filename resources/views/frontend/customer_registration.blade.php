@@ -1,97 +1,80 @@
-@extends('frontend.master')
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="{{ asset('frontend') }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('frontend') }}/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('frontend/login') }}/style.css" rel="stylesheet">
+    <link href="{{ asset('frontend/login') }}/font-awesome.min.css" rel="stylesheet">
 
-@push('frontend_css')
-    <style>
-        .gradient-custom-3 {
-            /* fallback for old browsers */
-            background: #84fab0;
-
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-        }
-
-        .gradient-custom-4 {
-            /* fallback for old browsers */
-            background: #84fab0;
-
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-        }
-    </style>
-@endpush
-
-@section('content')
-
-   <div class="row">
-        <div class="col-12">
-            <section class="bg-image"
-            style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-            <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-                <div class="container h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100 mt-5">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6 mb-5">
-                            <div class="card" style="border-radius: 15px;">
-                                <div class="card-body p-5">
-                                    <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-
-                                    <form>
-
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example1cg">Your Name</label>
-                                        </div>
-
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example3cg">Your Email</label>
-                                        </div>
-
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example4cg">Password</label>
-                                        </div>
-
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example4cdg">Repeat your password</label>
-                                        </div>
-
-                                        <div class="form-check d-flex justify-content-center mb-5">
-                                            <input class="form-check-input me-2" type="checkbox" value=""
-                                                id="form2Example3cg" />
-                                            <label class="form-check-label" for="form2Example3g">
-                                                I agree all statements in <a href="#!" class="text-body"><u>Terms of
-                                                        service</u></a>
-                                            </label>
-                                        </div>
-
-                                        <div class="d-flex justify-content-center">
-                                            <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
-                                        </div>
-
-                                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
-                                                class="fw-bold text-body"><u>Login here</u></a></p>
-
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+   <title>{{ env('APP_NAME') }}</title>
+  </head>
+  <body>
+    <section class="form-02-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="_lk_de">
+              <div class="form-03-main">
+                <div class="logo">
+                  <img src="{{ asset('frontend') }}/img/TravelAgencyLogo.png">
                 </div>
+                <form method="POST" action="{{ route('customer.registration') }}">
+                    @csrf
+                <div class="form-group">
+                    @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
+                    <input type="text" name="name" class="form-control _ge_de_ol" type="text" placeholder="Enter Name" required="" aria-required="true">
+                  </div>
+                <div class="form-group">
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
+                  <input type="email" name="email" class="form-control _ge_de_ol" type="text" placeholder="Enter Email" required="" aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
+                  <input type="password" name="password" class="form-control _ge_de_ol" type="text" placeholder="Enter Password" required="" aria-required="true">
+                </div>
+                <div class="form-group">
+                    @error('password_confirmation')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
+                    <input type="password" name="password_confirmation" class="form-control _ge_de_ol" type="text" placeholder="Confirm Password" required="" aria-required="true">
+                  </div>
+
+                <div class="checkbox form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="">
+                    <label class="form-check-label" for="">
+                      Remember me
+                    </label>
+                  </div>
+                  <a href="#">Forgot Password</a>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 100%;">Registration</button>
+                </div>
+            </form>
+                <div class="form-group nm_lk">Have a Account<a href="{{ route('customer.login') }}"> Login</a></div>
+
+              </div>
             </div>
-        </section>
+          </div>
         </div>
-   </div>
-@endsection
-
-
-@push('frontend_js')
-@endpush
+      </div>
+    </section>
+  </body>
+</html>

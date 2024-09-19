@@ -1,6 +1,5 @@
 @extends('frontend.master')
 
-
 @section('hero_section')
     {{-- slider --}}
     @include('frontend.layouts.slider')
