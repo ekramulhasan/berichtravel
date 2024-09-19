@@ -55,7 +55,7 @@
                     <h4 class="mb-2">Person: For <span class="backg-colors">{{ $package_info->person }} </span>People</h4>
                     <h4 class="mb-2">Number of Room: For <span class="backg-colors">{{ $package_info->room }} </span>Room
                     </h4>
-                    <h4 class="mb-2">Price: BDT <span class="backg-colors">{{ $package_info->price }} TK</span>Only</h4>
+                    <h4 class="mb-2">Price: BDT <span class="backg-colors">{{ $package_info->selling_price }} TK </span>Only</h4>
                     <h4 class="mb-2">There are More Added :</h4>
 
                     <div class="row gy-2 gx-4 mb-4">

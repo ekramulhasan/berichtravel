@@ -33,7 +33,7 @@
                                                 alt="{{ $package->image }}">
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-primary btn-icon">
+                                            <a href="{{ route('edit.package', $package->id) }}" class="btn btn-primary btn-icon">
                                                 <i data-feather="edit"></i>
                                             </a>
                                             <a data-link="{{ route('detele_package', $package->id) }}"

@@ -94,6 +94,8 @@ Route::prefix( 'admin/' )->group( function () {
         Route::post( '/store/new/package', [PackageController::class, 'store'] )->name( 'package.store' );
         Route::get( '/all/package', [PackageController::class, 'show'] )->name( 'all.package' );
         Route::get( '/delete/package/{id}', [PackageController::class, 'destroy'] )->name( 'detele_package' );
+        Route::get('/edit/package/{id}', [PackageController::class, 'edit'])->name('edit.package');
+        Route::post('/update/package/{id}', [PackageController::class, 'update'])->name('update.package');
 
         //guide
         Route::get( '/create/guide', [GuideController::class, 'index'] )->name( 'create.guide' );

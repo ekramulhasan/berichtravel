@@ -84,15 +84,51 @@ class PackageController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit( string $id ) {
-        //
+    public function edit(string $id)
+    {
+        $package = Package::findOrFail($id);
+        return view('backend.package.edit_package', compact('package'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update( Request $request, string $id ) {
-        //
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'selling_price' => 'required',
+            'regular_price' => 'required',
+            'title'         => 'required|string|max:255',
+            'location'      => 'required|string|max:100',
+            'time'          => 'required',
+            'person'        => 'required',
+            'room'          => 'required',
+            'description'   => 'required|string|max:10000',
+        ]);
+
+        $package = Package::findOrFail($id);
+
+        $package->update([
+            'selling_price' => $request->selling_price,
+            'regular_price' => $request->regular_price,
+            'title'         => $request->title,
+            'location'      => $request->location,
+            'time'          => $request->time,
+            'person'        => $request->person,
+            'room'          => $request->room,
+            'description'   => $request->description,
+        ]);
+
+        if ($request->hasFile('product_img')) {
+            $this->img_upload($request, $id);
+        }
+
+        if ($request->hasFile('product_multiple_img')) {
+            $this->multiple_img_upload($request, $id);
+        }
+
+        Toastr::success('Package updated successfully');
+        return redirect()->route('all.package')->with('package_update', 'Package Updated Successfully');
     }
 
     /**
