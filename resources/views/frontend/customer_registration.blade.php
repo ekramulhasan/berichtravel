@@ -27,7 +27,6 @@
 @endpush
 
 @section('content')
-
    <div class="row">
         <div class="col-12">
             <section class="bg-image"
@@ -35,48 +34,86 @@
             <div class="mask d-flex align-items-center h-100 gradient-custom-3">
                 <div class="container h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100 mt-5">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6 mb-5">
+                        <div class="col-12 col-md-9 col-lg-7 col-xl-6 " style="margin-top: 10%;margin-bottom: 10%;">
                             <div class="card" style="border-radius: 15px;">
                                 <div class="card-body p-5">
                                     <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-                                    <form>
+                                    <form action="{{ route('customer.registration') }}" method="POST">
+                                        @csrf
 
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example1cg">Your Name</label>
+                                        <div data-mdb-input-init class="form-outline mb-3">
+                                            <label class="form-label" for="name">Your Name</label>
+                                            <input type="text" id="name" class="form-control form-control-lg @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" />
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example3cg">Your Email</label>
+                                        <div data-mdb-input-init class="form-outline mb-3">
+                                            <label class="form-label" for="mobile">Your Mobile Number</label>
+                                            <input type="text" id="mobile" class="form-control form-control-lg @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" />
+                                            @error('mobile')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example4cg">Password</label>
+                                        <div data-mdb-input-init class="form-outline mb-3">
+                                            <label class="form-label" for="email">Your Email</label>
+                                            <input type="email" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" />
+                                            @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                                        <div data-mdb-input-init class="form-outline mb-3">
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" />
+                                            @error('password')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
-                                        <div class="form-check d-flex justify-content-center mb-5">
-                                            <input class="form-check-input me-2" type="checkbox" value=""
-                                                id="form2Example3cg" />
-                                            <label class="form-check-label" for="form2Example3g">
-                                                I agree all statements in <a href="#!" class="text-body"><u>Terms of
-                                                        service</u></a>
+                                        <div data-mdb-input-init class="form-outline mb-3">
+                                            <label class="form-label" for="password_confirmation">Repeat your password</label>
+                                            <input type="password" id="password_confirmation" class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror" name="password_confirmation" />
+                                            @error('password_confirmation')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="has_referral" id="has_referral" {{ old('has_referral') ? 'checked' : '' }}>
+                                                <label class="form-check-label fw-bold text-primary" for="has_referral">
+                                                    I have a referral code
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div id="referral_code_field" style="display: {{ old('has_referral') ? 'block' : 'none' }};">
+                                            <div data-mdb-input-init class="form-outline mb-3">
+                                                <label class="form-label" for="referral_code">Referral Code</label>
+                                                <input type="number" id="referral_code" class="form-control form-control-lg @error('referral_code') is-invalid @enderror" name="referral_code" value="{{ old('referral_code') }}" />
+                                                @error('referral_code')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check mb-5">
+                                            <input class="form-check-input me-2" type="checkbox" value="" id="terms" required {{ old('terms') ? 'checked' : '' }} />
+                                            <label class="form-check-label" for="terms">
+                                                I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
                                             </label>
                                         </div>
 
                                         <div class="d-flex justify-content-center">
-                                            <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                            <button type="submit" data-mdb-button-init data-mdb-ripple-init
                                                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                                         </div>
 
-                                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{{ route('customer.login') }}"
                                                 class="fw-bold text-body"><u>Login here</u></a></p>
 
                                     </form>
@@ -94,4 +131,13 @@
 
 
 @push('frontend_js')
+    <script>
+        document.getElementById('has_referral').addEventListener('change', function() {
+            if (this.checked) {
+                document.getElementById('referral_code_field').style.display = 'block';
+            } else {
+                document.getElementById('referral_code_field').style.display = 'none';
+            }
+        });
+    </script>
 @endpush

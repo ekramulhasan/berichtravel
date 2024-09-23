@@ -80,6 +80,11 @@
 
                             </div>
 
+                            <div class="text-center mt-3">
+                                <a href="{{ route('home') }}" class="btn btn-info">Go to Home Page</a>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>

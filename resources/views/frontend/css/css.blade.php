@@ -64,10 +64,6 @@
 </script>
 
 
-
-
-
-
 <!-- Favicon -->
 <link href="img/favicon.ico" rel="icon">
 
@@ -91,6 +87,9 @@
 <link rel="shortcut icon" href="{{ asset('frontend') }}/img/TravelAgencyLogo.png" />
 <!-- Template Stylesheet -->
 <link href="{{ asset('frontend') }}/css/style.css" rel="stylesheet">
+
+{{-- toaster css--}}
+<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 <!-- Owl Carousel CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">

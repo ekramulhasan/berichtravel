@@ -60,11 +60,12 @@
                     <a href="{{ route('about.page') }}" class="nav-item nav-link">Blog</a>
                     {{-- <a href="service.html" class="nav-item nav-link">Services</a> --}}
                     <a href="{{ route('all_packagesss') }}" class="nav-item nav-link">Our Service</a>
-                    @auth('customer')
+                    @auth
                     <a href="{{ route('customer.profile') }}" class="nav-item nav-link">Profile</a>
                     @else
                     <a href="{{ route('customer.login') }}" class="nav-item nav-link">Login</a>
                     @endauth
+
                 </div>
 
 

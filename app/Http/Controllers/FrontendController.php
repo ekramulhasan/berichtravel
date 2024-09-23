@@ -43,7 +43,7 @@ class FrontendController extends Controller {
         $package_id      = $details_package->first()->id;
         $package_info    = Package::find( $package_id );
         $multi_img       = ProductImage::where( 'product_id', $package_id )->get();
-        return view( 'frontend.package_details', compact( 'package_info','multi_img' ) );
+        return view( 'frontend.package_details', compact( 'package_info', 'multi_img' ) );
 
     }
 
