@@ -1,21 +1,20 @@
 <?php
 
-use App\Models\Destination;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\DepositController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\FacilityController;
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\OurServiceController;
-use App\Http\Controllers\DestinationController;
-use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\GuideController;
 use App\Http\Controllers\Backend\PackageController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\TestimonialController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\DepositController;
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\OurServiceController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +60,6 @@ Route::get( '/view-clear', function () {
     return '<h1>View cache cleared</h1>';
 } );
 
-
 Route::get( '/', [FrontendController::class, 'index'] )->name( 'home' );
 Route::get( '/about/us/', [FrontendController::class, 'aboutUs'] )->name( 'about.page' );
 Route::get( '/all/packages/', [FrontendController::class, 'allPackages'] )->name( 'all_packagesss' );
@@ -94,8 +92,8 @@ Route::prefix( 'admin/' )->group( function () {
         Route::post( '/store/new/package', [PackageController::class, 'store'] )->name( 'package.store' );
         Route::get( '/all/package', [PackageController::class, 'show'] )->name( 'all.package' );
         Route::get( '/delete/package/{id}', [PackageController::class, 'destroy'] )->name( 'detele_package' );
-        Route::get('/edit/package/{id}', [PackageController::class, 'edit'])->name('edit.package');
-        Route::post('/update/package/{id}', [PackageController::class, 'update'])->name('update.package');
+        Route::get( '/edit/package/{id}', [PackageController::class, 'edit'] )->name( 'edit.package' );
+        Route::post( '/update/package/{id}', [PackageController::class, 'update'] )->name( 'update.package' );
 
         //guide
         Route::get( '/create/guide', [GuideController::class, 'index'] )->name( 'create.guide' );
