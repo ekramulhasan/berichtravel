@@ -25,9 +25,15 @@ class CustomerAuthController extends Controller {
 
     public function customerProfile() {
 
-        $user = Auth::user();
-        $referralCode = RefCode::where('user_id', $user->id)->first();
-        return view( 'frontend.customer_profile', compact('referralCode') );
+        $user         = Auth::user();
+        $referralCode = RefCode::where( 'user_id', $user->id )->select( 'ref_code' )->first();
+        $totalPoint   = UseRefCode::where( 'use_code', $referralCode->ref_code )->sum( 'point' );
+        $useRefPoint  = User::join( 'use_ref_codes', 'users.id', 'use_ref_codes.user_id' )
+            ->where( 'use_ref_codes.user_id', $user->id )
+            ->select( 'use_ref_codes.use_code', 'use_ref_codes.point' )
+            ->first();
+        // dd( $useRefPoint );
+        return view( 'frontend.customer_profile', compact( 'referralCode', 'totalPoint', 'useRefPoint' ) );
 
     }
 
@@ -59,6 +65,7 @@ class CustomerAuthController extends Controller {
             UseRefCode::create( [
                 'user_id'  => $user->id,
                 'use_code' => $request->referral_code,
+                'point'    => 10,
             ] );
         }
 

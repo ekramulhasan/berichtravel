@@ -31,9 +31,9 @@
         <div class="col-12">
             <section class="bg-image"
             style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-            <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="mask d-flex align-items-center gradient-custom-3" style="margin-bottom: -10%;">
                 <div class="container h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100 mt-5">
+                    <div class="row d-flex justify-content-center align-items-center mt-4">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6 " style="margin-top: 10%;margin-bottom: 10%;">
                             <div class="card" style="border-radius: 15px;">
                                 <div class="card-body p-5">

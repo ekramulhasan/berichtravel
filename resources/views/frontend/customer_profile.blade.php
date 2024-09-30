@@ -47,7 +47,17 @@
                     <div class="col-md-6 mb-4">
                        <div class="text-center shadow-lg p-3 bg-white rounded">
                         <h4>Travel Points</h4>
-                        <h2 class="text-primary">{{ number_format(Auth::user()->travel_points ?? 0) }}</h2>
+                        <h2 class="text-primary">
+                            @if(isset($useRefPoint) && isset($totalPoint))
+                                {{ $useRefPoint->point + $totalPoint }}
+                            @elseif(isset($useRefPoint))
+                                {{ $useRefPoint->point }}
+                            @elseif(isset($totalPoint))
+                                {{ $totalPoint }}
+                            @else
+                                0
+                            @endif
+                        </h2>
                         <p>Redeem for discounts on your next trip!</p>
                        </div>
                     </div>

@@ -10,38 +10,8 @@
 </head>
 
 <body>
-    
-    <!-- Spinner Start -->
-    {{-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div> --}}
-    <!-- Spinner End -->
 
 
-    <!-- Topbar Start -->
-    {{-- <div class="container-fluid bg-dark px-5 d-none d-lg-block">
-        <div class="row gx-0">
-            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0133 250 9 708</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
-                </div>
-            </div>
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- Topbar End -->
 
 
     <!-- Navbar & Hero Start -->
@@ -58,17 +28,21 @@
                 <div class="navbar-nav ms-auto py-0">
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
                     <a href="{{ route('about.page') }}" class="nav-item nav-link">Blog</a>
-                    {{-- <a href="service.html" class="nav-item nav-link">Services</a> --}}
                     <a href="{{ route('all_packagesss') }}" class="nav-item nav-link">Our Service</a>
                     @auth
                     <a href="{{ route('customer.profile') }}" class="nav-item nav-link">Profile</a>
                     @else
                     <a href="{{ route('customer.login') }}" class="nav-item nav-link">Login</a>
                     @endauth
-
+                    <!-- Google Language Change -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Language</a>
+                        <div class="dropdown-menu">
+                            <div id="google_translate_element"></div>
+                        </div>
+                    </div>
+                    <!-- End Google Language Change -->
                 </div>
-               
-
             </div>
         </nav>
 
@@ -166,6 +140,13 @@
 
     @yield('footer_script')
 
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 
